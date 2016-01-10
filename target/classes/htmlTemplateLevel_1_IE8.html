@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>农业部行政许可服务导航</title>
+	<link rel="stylesheet" href="stylesheets/aui.min.css" media="screen" title="no title" charset="utf-8">
+	<style type="text/css">
+		*body{
+			font-family: "微软雅黑"!important;
+			overflow: hidden;
+		}
+		.bac{
+			background-image: url(images/demo/bac1.jpg);
+			background-size:auto 100%;
+			background-repeat: no-repeat; 
+			background-position: top left;
+			overflow: hidden;
+			width: 100%;
+		}
+		.bac1{
+			background: rgba(255, 255, 255, 0.6);
+			width: 60%;
+			border-radius: 10px;
+			box-shadow: 3px 3px #ccc;
+			margin:20px auto 0;
+			text-align: center;
+			position: relative;
+			padding-left:0px;
+			z-index: 100;
+		}
+		.bac2{
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top:0;
+			left: 0;
+			background: #fff;
+			filter:alpha(opacity:60);
+			opacity:0.6;
+			border-radius: 10px;
+			box-shadow: 3px 3px #ccc;
+			behavior: url(res/ie-css3.htc);
+		}
+		.ul-list{
+			width:70%;
+			margin:0 auto;
+			position: relative;
+			z-index: 20;
+		}
+		.ul-list>li{
+			width:33.33333333%;
+			padding:10px 20px;
+			float:left;
+			position: relative;
+			display: inline;
+			z-index: 30;
+			cursor:pointer;
+		}
+		.ul-list>li>img{
+			width:100%;
+			height: 100%;
+		}
+		.header{
+			margin:0 auto;
+			width:418px;
+			font-size: 38px;
+			color:red;
+			text-shadow:0 0 5px #fff,0 0 10px #fff,0 0 13px #fff,0 0 14px #fff,0 0 15px #fff,0 0 12px #fff,0 0 11px #fff,0 0 20px #fff;
+			font-weight: 600;
+			font-family: "微软雅黑";
+			position: relative;
+			z-index: 10;
+		}
+		.ul-list>li>p{
+			position: absolute;
+			float:none;
+			display: block;
+			top: 70%;
+			left: 20px;
+			text-align: center;
+			font-family: "微软雅黑";
+			font-weight: 600;
+			color: #1266BB;
+			font-size:18px;
+			width: 100%;
+			background: #efefef
+		}
+		.cover{
+			height:100%;
+			width:100%;
+			position: absolute;
+			top:0;
+			left:0;
+			z-index:1;
+			background: #fff;
+			filter:alpha(opacity:20);
+			opacity:0.2;
+		}
+		.basic{
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top:0;
+			z-index: 0;
+			opacity: 0.8;
+		}
+		.title{
+			display: block;
+			margin:0 auto;
+			width:418px;
+			position: relative;
+			z-index: 20;
+		}
+	</style>
+</head>
+<body>
+	<div class="cover"></div>
+	<div class="bac">
+		<img class="basic" src="images/demo/bac1.jpg" alt="">
+		<div style="height:20px"></div>
+		<img class="title" src="images/demo/head.png" alt="">
+		<div class="bac1">
+			<div class="bac2"></div>
+			<div style="height:20px"></div>
+			<ul class="ul-list">
+				<li onclick="javascript:window.location.href='level2?title=feiliao'">
+					<img src="images/demo/feiliao.jpg" alt="">
+					<p>
+						肥料
+					</p>
+				</li>
+				<li onclick="javascript:window.location.href='level2?title=yuye'">
+					<img src="images/demo/yuye.jpg" alt="">
+					<p>
+						渔业
+					</p>
+				</li>
+				<li onclick="javascript:window.location.href='level2?title=chuanjian'">
+					<img src="images/demo/chuanjian.jpg" alt="">
+					<p>
+						船检
+					</p>
+				</li>
+				<li onclick="javascript:window.location.href='level2?title=nongyao'">
+					<img src="images/demo/nongyao.jpg" alt="">
+					<p>
+						农药
+					</p>
+				</li>
+				<li onclick="javascript:window.location.href='level2?title=zhongzi'">
+					<img src="images/demo/zhongzi.jpg" alt="">
+					<p>
+						种子
+					</p>
+				</li>
+				<li onclick="javascript:window.location.href='level2?title=xumu'">
+					<img src="images/demo/xumu.jpg" alt="">
+					<p>
+						畜牧
+					</p>
+				</li>
+				<li onclick="javascript:window.location.href='level2?title=shouyi'">
+					<img src="images/demo/shouyi.jpg" alt="">
+					<p>
+						兽医
+					</p>
+				</li>
+				<li onclick="javascript:window.location.href='level2?title=kejiao'">
+					<img src="images/demo/kejiao.jpg" alt="">
+					<p>
+						科教
+					</p>
+				</li>
+				<li onclick="javascript:window.location.href='level2?title=zhilianganquan'">
+					<img src="images/demo/zhilianganquan.jpg" alt="">
+					<p>
+						质量安全
+					</p>
+				</li>
+			</ul>
+			<div style="height:20px"></div>
+		</div>
+	</div>
+
+
+	<script src="javascripts/jquery-1.7.2.min.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			window.onresize=change
+			change()
+			for(var i=0; i<9; i++){
+				$(".ul-list").find("li").eq(i).hover(function(){
+					var picw=$(this).find("img").eq(0).width()
+					$(this).css({
+						"padding":"0px 10px"
+					})
+					$(this).find("img").eq(0).css({
+						"height":picw+20
+					})
+					var picx=picw+20
+					$(this).find("p").eq(0).css({
+						"height":picx*0.3+"px",
+						"width":picx+"px",
+						"top":picx*0.7+"px",
+						"line-height":picx*0.3+"px",
+						"font-size":picx/8+"px",
+						"left":"10px"
+					})
+				},function(){
+					var picw=$(this).find("img").eq(0).width()
+					$(this).css({
+						"padding":"10px 20px"
+					})
+					var picx=picw-20
+					$(this).find("p").eq(0).css({
+						"height":picx*0.3+"px",
+						"width":picx+"px",
+						"top":picx*0.7+10+"px",
+						"line-height":picx*0.3+"px",
+						"font-size":picx/8+"px",
+						"left":"20px"
+					})
+					$(this).find("img").eq(0).css({
+						"height":picw-20
+					})
+				})
+			}
+		})
+		function change(){
+			var windowh=$(window).height()
+			var picw=$(".ul-list").find("img").eq(0).width()
+			var pich=$(".ul-list").find("img").eq(0).height()
+			$(".bac").css({
+				"height":windowh
+			})
+			for(var i=0; i<9; i++){
+				$(".ul-list").find("img").eq(i).css({
+					"height":picw+"px"
+				})
+				$(".ul-list").find("p").eq(i).css({
+					"height":picw*0.3+"px",
+					"width":picw+"px",
+					"top":picw*0.7+10+"px",
+					"line-height":picw*0.3+"px",
+					"font-size":picw/8+"px"
+				})
+				$(".ul-list").find("li").eq(i).css({
+					"height":picw+20+"px"
+				})
+			}
+		}
+	</script>
+</body>
+</html>

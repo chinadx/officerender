@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>农业部行政许可服务导航</title>
+	<link rel="stylesheet" href="stylesheets/aui.min.css" media="screen" title="no title" charset="utf-8">
+	<style type='text/css'>
+		/*cssreset*/
+				html, body, div, span, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		abbr, address, cite, code,
+		del, dfn, em, img, ins, kbd, q, samp,
+		small, strong, sub, sup, var,
+		b, i,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section, summary,
+		time, mark, audio, video {
+		    margin:0;
+		    padding:0;
+		    border:0;
+		    outline:0;
+		    font-size:100%;
+		    vertical-align:baseline;
+		    background:transparent;
+		}
+
+		body,html{
+		    line-height:1;
+		    height: 100%;
+		    width: 100%
+		}
+
+		:focus {
+			outline: 1;
+		}
+
+		article,aside,canvas,details,figcaption,figure,
+		footer,header,hgroup,menu,nav,section,summary { 
+		    display:block;
+		}
+
+		nav,ul,li{
+		    list-style:none;
+		}
+
+		blockquote, q {
+		    quotes:none;
+		}
+
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+		    content:'';
+		    content:none;
+		}
+
+		a {
+		    margin:0;
+		    padding:0;
+		    border:0;
+		    font-size:100%;
+		    vertical-align:baseline;
+		    background:transparent;
+		}
+
+		.wrap{
+			position: relative;
+			height: 100%;
+			background: url(images/demo/bac1.jpg);
+			background-size: auto 100%;
+			background-repeat: no-repeat; 
+			width: 100%;
+		}
+		.items{
+			margin:0px auto;
+			width: 50%;
+			height: 360px;
+			background: rgba(225,225,225,0.5);
+			border-radius: 10px;
+			box-shadow: 3px 3px #ccc;
+			position: relative;
+			z-index: 30;
+		}
+		.item{
+			background: rgb(69, 192, 239);
+			box-shadow: 3px 3px #078282;
+			margin: 20px;
+			line-height: 50px;
+			display: block;
+			width: 40%;
+			height: 50px;
+			border-radius: 20px;
+			text-align: center;
+			font-weight: bold;
+			float:left;
+			position: relative;
+			cursor:pointer;
+		}
+		.item:hover{
+			background:#3498DB;
+			opacity: 0.7
+		}
+		.item:before{
+			content: "";
+            position: absolute;
+            top: 15px;
+            left: 17%;
+            width: 0px;
+            height: 0px;
+            border: 10px solid transparent;
+            border-left-color: #DC143C ;
+		}
+		.btn{
+			margin: 20px;
+			line-height: 50px;
+			display: block;
+			width: 40%;
+			height: 50px;
+			text-align: center;
+			font-weight: bold;
+			float:left;
+			position: relative;
+		}
+		.btn>div{
+			height: 35px;
+			width: 60px;
+			font-size: 15px;
+			text-align: center;
+			line-height: 35px;
+			font-family: "微软雅黑";
+			background: rgb(93, 95, 95);
+			box-shadow: 2px 1px #1B1717;
+			font-weight: 600;
+			border-radius: 7px;
+			color:#fff;
+			z-index: 10;
+			margin:0 auto;
+			cursor:pointer;
+		}
+		.btn>div:hover{
+			background: rgb(52, 73, 94);
+		}
+		.head{
+			padding: 30px 130px 20px 40px;
+			font: bold 26px/100% "微软雅黑", "Lucida Grande", "Lucida Sans", Helvetica, Arial, Sans;;
+			color: #fff;
+			text-transform: uppercase;
+			text-shadow: 1px 1px 0 #f96,-1px -1px 0 #f96; 
+			position: absolute;
+			top:40px;
+			left: 80px;
+			border-bottom: 1px dashed #fff;
+			z-index: 10;
+		}
+		.cover{
+			height:100%;
+			width:100%;
+			position: absolute;
+			top:0;
+			left:0;
+			z-index:1;
+			background: #fff;
+			filter:alpha(opacity:20);
+			opacity:0.2;
+		}
+		.basic{
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top:0;
+			z-index: 0;
+			opacity: 0.8;
+		}
+		.bac2{
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top:0;
+			left: 0;
+			background: #fff;
+			filter:alpha(opacity:60);
+			opacity:0.6;
+			border-radius: 10px;
+			box-shadow: 3px 3px #ccc;
+			behavior: url(res/ie-css3.htc)
+		}
+		.left{
+			position: absolute;
+			left:130px;
+			top: 240px;
+			height: 300px;
+			width:auto;
+			z-index:50;
+		}
+		.right{
+			position: absolute;
+			right:30px;
+			bottom: 0px;
+			height: 200px;
+			width:auto;
+			z-index:50;
+			opacity: 0.93;
+		}
+	</style>
+</head>
+<body>
+	<div class="cover"></div>
+	<div class="wrap">
+		<img class="basic" src="images/demo/bac1.jpg" alt="">
+		<img class="left" src="images/demo/left3.png" alt="">
+		<div class="head">{{title}}</div>
+		<div style="height:150px"></div>
+		<ul class="items">
+			<div class="bac2"></div>
+			<li class="item" onclick="javascript:window.location='{{extra.banshizhinan}}'">办事指南</li>
+			<li class="item"  onclick="javascript:window.location='{{extra.wangshangshenqing}}'">网上申请</li>
+			<li class="item"  onclick="javascript:window.location='{{extra.biaogexiazai}}'">表格下载</li>
+			<li class="item"  onclick="javascript:window.location='{{extra.jieguochaxun}}'">结果查询</li>
+			<li class="item"  onclick="javascript:{{preview}}">示范样表</li>
+			<li class="item"  onclick="javascript:window.location='{{extra.changjianwenti}}'">常见问题</li>
+			<li class="btn">
+				<div onclick="javascript:window.location='level1'">首&nbsp页</div>
+			</li>
+			<li class="btn">
+				<div onclick="javascript:history.back(-1)">返&nbsp回</div>
+			</li>
+		</ul>
+	</div>
+	
+
+
+	<script src="javascripts/jquery-1.7.2.min.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			window.onresize=change
+			change()
+	
+		})
+		function change(){
+			var itmesw=$(".items").width()
+			for(var i=0; i<8; i++){
+				$(".items").find("li").eq(i).css({
+					"margin-left":itmesw*0.05,
+					"margin-right":itmesw*0.05
+				})
+			}
+			var windowh=$(window).height()
+			$(".warp").css({
+				"height":windowh
+			})
+		}
+	</script>
+</body>
+</html>

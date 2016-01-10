@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>农业部行政许可服务导航</title>
+	<link rel="stylesheet" href="stylesheets/aui.min.css" media="screen" title="no title" charset="utf-8">
+	<style type="text/css">
+		.bac{
+			background-image:url(images/demo/bac1.jpg);
+			background-size:auto 100%;
+			background-repeat: no-repeat; 
+			background-position: top left;
+		}
+		.back{
+			height: 35px;
+			width: 60px;
+			font-size: 15px;
+			text-align: center;
+			line-height: 35px;
+			font-family: "微软雅黑";
+			background: rgb(93, 95, 95);
+			position: absolute;
+			box-shadow: 2px 1px #1B1717;
+			bottom:30px;
+			right: 30px;
+			font-weight: 600;
+			border-radius: 7px;
+			color:#fff;
+			opacity: 0;
+			z-index: 10;
+			cursor:pointer;
+			transition-property:opacity;
+			transition-timing-function:linear;
+			transition-duration:0.4s;
+			transition-delay:1.5s;
+		}
+		.back:hover{
+			background-color: rgb(52,73,94)
+		}
+		.bac1{
+			background: rgba(255, 255, 255, 0.5);
+			width: 50%;
+			height: 460px;
+			border-radius: 10px;
+			box-shadow: 3px 3px #ccc;
+			margin:0 auto;
+			text-align: center;
+			position: relative;
+		}
+		.ul-list2{
+			width:85%;
+			/*transform:skewX(25deg);
+			transform-origin:top;*/
+			list-style-type: none;
+			margin:0 auto;
+			padding: 0;
+			height: 280px;
+			overflow-y: auto;
+			position: relative;
+			z-index: 10;
+		}
+		.ul-list2>li{
+			/*height: 30px;*/
+			width:80%;
+			border-radius: 5px;
+			box-shadow: 2px 2px #1C5E7D;
+			background: #4CCEEC;
+			margin:20px auto;
+			color:#000;
+			text-align: left;
+			line-height: 30px;
+			font-family: "微软雅黑";
+			font-size: 15px;
+			font-weight: 600;
+			opacity: 1;
+			padding-left:8px;
+			cursor:pointer;
+			transform:translateX(-1200px);
+		}
+		.ul-list2>li:hover{
+			background-color:#419ED2;
+		}
+		/*.change{
+			transform:translate(1000px,0);
+		}*/
+		.ul-list2 li:nth-child(1){
+			transition-property:transform,opacity;
+			transition-timing-function:linear;
+			transition-duration:0.5s;
+			transition-delay:0s;
+		}
+		.ul-list2 li:nth-child(2){
+			transition-property:transform,opacity;
+			transition-timing-function:linear;
+			transition-duration:0.5s;
+			transition-delay:0.3s,0s;
+		}
+		.ul-list2 li:nth-child(3){
+			transition-property:transform,opacity;
+			transition-timing-function:linear;
+			transition-duration:0.5s;
+			transition-delay:0.6s,0s;
+		}
+		.ul-list2 li:nth-child(4){
+			transition-property:transform,opacity;
+			transition-timing-function:linear;
+			transition-duration:0.5s;
+			transition-delay:0.9s,0s;
+		}
+		.ul-list2 li:nth-child(5){
+			transition-property:transform,opacity;
+			transition-timing-function:linear;
+			transition-duration:0.5s;
+			transition-delay:1.2s,0s;
+		}
+		.ul-list2 li:nth-child(6){
+			transition-property:transform,opacity;
+			transition-timing-function:linear;
+			transition-duration:0.5s;
+			transition-delay:1.5s,0s;
+		}
+		.head{
+			width: 370px;
+			padding: 30px;
+			font: bold 32px/100% "微软雅黑", "Lucida Grande", "Lucida Sans", Helvetica, Arial, Sans;;
+			color: #fff;
+			text-transform: uppercase;
+			text-shadow: 1px 1px 0 #f96,-1px -1px 0 #f96; 
+			position: absolute;
+			top:40px;
+			left: 80px;
+			padding-bottom: 20px;
+			border-bottom: 1px dashed #fff;
+			z-index: 10;
+		}
+		.lead{
+			font-size: 18px;
+			text-shadow:2px 2px #ccc;
+			color:blue;
+			font-family: "微软雅黑";
+			margin: 10px auto;
+			font-weight: 600;
+			width:68%;
+			text-align: left;
+			position: relative;
+			z-index: 10;
+		}
+		.cover{
+			height:100%;
+			width:100%;
+			position: absolute;
+			top:0;
+			left:0;
+			z-index:1;
+			background: #fff;
+			filter:alpha(opacity:20);
+			opacity:0.2;
+		}
+		.basic{
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top:0;
+			z-index: 0;
+			opacity: 0.8;
+		}
+		.bac2{
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			top:0;
+			left: 0;
+			background: #fff;
+			filter:alpha(opacity:60);
+			opacity:0.6;
+			border-radius: 10px;
+			box-shadow: 3px 3px #ccc;
+			behavior: url(res/ie-css3.htc);
+			z-index: 10;
+		}
+		.left{
+			position: absolute;
+			left:130px;
+			top: 240px;
+			height: 300px;
+			width:auto;
+			z-index:50;
+		}
+		.right{
+			position: absolute;
+			right:30px;
+			bottom: 0px;
+			height: 200px;
+			width:auto;
+			z-index:50;
+			opacity: 0.93;
+		}
+	</style>
+</head>
+<body>
+	<div class="head">{{title}}</div>
+	<div class="cover"></div>
+	<div class="bac">
+		<img class="basic" src="images/demo/bac1.jpg" alt="">
+		<img class="left" src="images/demo/left3.png" alt="">
+		<div style="height:150px"></div>
+		<div class="bac1">
+			<div class="bac2"></div>
+			<div style="height:30px"></div>
+			<div class="lead">请选择需要办理的许可事项：</div>
+			<div class="back">返&nbsp回</div>
+			<ul class="ul-list2">
+				{{li}}
+			</ul>
+		</div>
+		<div style="height:20px"></div>
+	</div>
+
+
+
+	<script src="javascripts/jquery-1.7.2.min.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var windowh=$(window).height()
+			$(".bac").css({
+				"height":windowh
+			})
+			setTimeout(function(){
+				move()
+			},100)
+			for(var i=0; i<6; i++){
+				$(".ul-list2").find("li").eq(i).click(function(){
+					for(var i=0; i<6; i++){
+						$(".ul-list2").find("li").eq(i).css({
+							"opacity":"0"
+						})
+					}
+					$(this).css({
+						"opacity":"0.8"
+					})
+				})
+			}
+			// setTimeout(function(){
+			// 	$(".ul-list2").find("li").eq(0).click(function(){
+			// 		window.location="3-zhongzi-1.html"
+			// 		// window.location.herf="3-zhongzi-1.html"
+			// 	})
+			// 	$(".ul-list2").find("li").eq(1).click(function(){
+			// 		window.location="3-zhongzi-2.html"
+			// 	})
+			// 	$(".ul-list2").find("li").eq(2).click(function(){
+			// 		window.location="3-zhongzi-3.html"
+			// 	})
+			// 	$(".ul-list2").find("li").eq(3).click(function(){
+			// 		window.location="3-zhongzi-4.html"
+			// 	})
+			// 	$(".ul-list2").find("li").eq(4).click(function(){
+			// 		window.location="3-zhongzi-5.html"
+			// 	})
+			// 	$(".ul-list2").find("li").eq(5).click(function(){
+			// 		window.location="3-zhongzi-6.html"
+			// 	})
+			// },400)
+		})
+		function move(){
+			var lih=$(".ul-list2").find("li").eq(0).width()
+			$(".ul-list2").find("li").each(function(){
+				$(this).css({
+					"transform":"translateX(0px)"
+				})
+			})
+			$(".back").css({
+				"opacity":"1"
+			})
+		}
+		$(".back").click(function(){
+			history.back(-1)
+		})
+	</script>
+</body>
+</html>

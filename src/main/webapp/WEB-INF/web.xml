@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>officerender</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+		<servlet-name>RenderServlet</servlet-name>
+		<servlet-class>
+			cn.goodman.servlet.RenderServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RenderServlet</servlet-name>
+		<url-pattern>/office</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LevelOneServlet</servlet-name>
+		<servlet-class>cn.goodman.servlet.LevelOneServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LevelOneServlet</servlet-name>
+		<url-pattern>/level1</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LevelTwoServlet</servlet-name>
+		<servlet-class>cn.goodman.servlet.LevelTwoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LevelTwoServlet</servlet-name>
+		<url-pattern>/level2</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LevelThreeServlet</servlet-name>
+		<servlet-class>cn.goodman.servlet.LevelThreeServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LevelThreeServlet</servlet-name>
+		<url-pattern>/level3</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PdfPreviewServlet</servlet-name>
+		<servlet-class>cn.goodman.servlet.PdfPreviewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PdfPreviewServlet</servlet-name>
+		<url-pattern>/preview</url-pattern>
+	</servlet-mapping>
+</web-app>
